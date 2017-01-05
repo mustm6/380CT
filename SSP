@@ -1,7 +1,8 @@
+#imports required libraries
 from random import randint, sample
 from itertools import chain, combinations
 from time import time
-
+#creates class, intialises an empty list S which will be used to store the random integers, sets the varible t (target) to 0
 class SSP():
     def __init__(self, S=[], t=0):
         self.S = S
@@ -14,7 +15,8 @@ class SSP():
 
     def __repr__(self):
         return "SSP instance: S="+str(self.S)+"\tt="+str(self.t)
-    
+        
+    # generates random integers to be stored in the empty list/set S and randomly selects a target number for integer t. 
     def random_instance(self, n, bitlength=10):
         max_n_bit_number = 2**bitlength-1
         self.S = sorted( [ randint(0,max_n_bit_number) for i in range(n) ] , reverse=True)
@@ -28,6 +30,8 @@ class SSP():
         self.n = len( self.S )
 
     ###
+# calculates the sum of a subset of S and compares it to the target t to see if the are equal 
+#while they are not equal the program will continue running until it finds a subset equal to the target; then it will stop.
 
     def try_at_random(self):
         candidate = []
@@ -38,8 +42,14 @@ class SSP():
             print( "Trying: ", candidate, ", sum:", total )
             
 
+        
+     
+        
+
 instance = SSP()
 instance.random_yes_instance(4)
 print( instance )
+
+
 
 instance.try_at_random()
