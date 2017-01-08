@@ -1,0 +1,17 @@
+  def greedy(self):
+      candidate = []
+      candidate = sample(self.S, randint(0,self.n))
+      total = 0
+      largest = candidate[0]
+      for element in candidate:
+        if element > largest:
+          largest = element
+           
+          
+      for element in candidate:
+        while element + total <= self.t:
+          total = total + (largest)
+          print ("target - total:", self.t - total)
+          print ("subset:",largest, total)
+          print("total + target:", total + self.t)
+          print("total:", total)
