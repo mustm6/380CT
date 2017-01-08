@@ -1,0 +1,25 @@
+######### --- EXHAUSTIVE SEARCH --- #########        
+    def exhaustive_search(self):
+       subsets =  self.getSubsets() #calling get function that generates subsets
+       total = 0 #initialise to 0
+       for set in subsets: #loop through all subsets 
+           total = sum(set) #make the total equal the sum of the set generated
+           print("Try: ", set, ", Sum:", total ) #print the set in use
+           if (total == self.t):
+              print("Answer: " +str(set))#printing solution if found
+              return True
+
+    def getSubsets(self):
+        results = [] # an empty array to store all subsets 
+        for i in range(0,len(self.S)+1): #ensures that the program loops through the length of the set
+            results += itertools.combinations(self.S,i) #using combinations to find possible subsets
+
+        for x in results: #print all subset comibnations
+            print(list(x))
+        return results
+        
+            
+instance = SSP() 
+instance.random_yes_instance(4)
+print( instance )
+print("Solution: " +str(instance.exhaustive_search()))
