@@ -1,16 +1,17 @@
   def dynamic_programming(self):
         set = np.full((self.t+1,self.n+1),-1)
         
-        for i in range(0,self.n+1):
-            set[0][i] = True
+        for i in range(0,self.n+1): #for the first row, set to true
+            set[0][i] = True #set to true
       
-        for j in range(1, self.t+1):
-            set[j][0] = False
-       
+        for j in range(1, self.t+1):  #set the first column to false
+            set[j][0] = False #set to false
+       #if row/column is less than the set value
+       #change false to true, otherwise do nothing
         for i in range(1, self.t+1):
             for j in range(1, self.n+1):
                 set[i][j] = set[i][j-1]
                 if (i >= self.S[j-1]):
                     set[i][j] = set[i][j] or set[i - self.S[j-1]][j-1]
-        
+        print str(set)
         return set[self.t][self.n]
