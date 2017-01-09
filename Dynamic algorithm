@@ -1,0 +1,16 @@
+  def dynamic_programming(self):
+        set = np.full((self.t+1,self.n+1),-1)
+        
+        for i in range(0,self.n+1):
+            set[0][i] = True
+      
+        for j in range(1, self.t+1):
+            set[j][0] = False
+       
+        for i in range(1, self.t+1):
+            for j in range(1, self.n+1):
+                set[i][j] = set[i][j-1]
+                if (i >= self.S[j-1]):
+                    set[i][j] = set[i][j] or set[i - self.S[j-1]][j-1]
+        
+        return set[self.t][self.n]
