@@ -1,0 +1,30 @@
+ def GRASP(self, max_iter):
+         best_candidate = 0
+         while (i <=  max_iter):
+             greedy_candidate = GreedyAlgorithm()
+             grasp_candidate = LocalSearch(greedy_candidate)
+    def local_search(self,greedy_set):
+        candidate = []
+        for i in range(0, self.n):
+            for j in range(0, greedy_set):
+                if (self.S[i] not in greedy_set):
+                    greedy_set[i]
+    def NeigbouringSolution(self, set = []):
+        if len(set) != 0:
+            randPosSet = randint(0, len(set))
+            randPosSet1 = randint(0, len(set)-1)
+            set1 = list(set)
+            
+            if len(self.S) == len(set1):
+                print "No Neighbouring Solution"
+            else:
+                for i in range(0, self.n):
+                    if self.S[i] in set1:
+                        randPosSet = randint(0, len(set))
+                        print "rand: " + str(randPosSet)
+                    else:
+                        set1[randPosSet1] = self.S[i]
+                        break
+            print("Initial: " +str(set)) 
+            print("Neighbour: " +str(set1) + "\n")
+            return set1
