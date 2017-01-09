@@ -1,14 +1,19 @@
+  #create greedy function
   def greedy(self):
+  #empty list for the storage of random integers
       candidate = []
+      #generate random integers
       candidate = sample(self.S, randint(0,self.n))
       total = 0
+      #selects largest element in the set S/candidate 
       largest = candidate[0]
       for element in candidate:
         if element > largest:
           largest = element
            
-          
+      #loops through all elements in candidate    
       for element in candidate:
+      #while total is less than or equal to the target; the programm will run the code below
         while element + total <= self.t:
           total = total + (largest)
           print ("target - total:", self.t - total)
